@@ -1,1 +1,64 @@
-BENEFICIOS DE CLOUD COMPUTING
+Cinco Características de Cloud Computing;
+
+- Autoatendimento sob demanda/On-demand self service
+- Amplo acesso à rede/Broad network acess
+- Multilocação e pool de recursos/Multi-tenancy and resource pooling
+- Rápida elasticidade e escalabilidade/Rapid elasticity and Scalability
+- Serviço medido/Measured Servcice
+
+
+Seis Vantagens de Cloud Computing
+
+- Despesas de Capital Comercial (CAPEX) para Despesas Operacionais (OPEX)/Trade Capital Expense (CAPEX) for operational Expense (OPEX)
+- Beneficie-se de enormes economias de escala/Benefit from Massive economies of scale
+- Pare de adivinhar a capacidade/Stop guessing capacity
+- Aumentar velocidade e agilidade/Increse speed and agility
+- Pare de gastar dinheiro administrando e mantendo data centers/Stop spenging money running and maintaining data centers
+- Global em minutos/Go global in minutes
+
+
+Problemas resolvidos pela nuvem/Problems solved by the Cloud
+
+Flexibilidade/Flexibility
+Custo-benefício/Cost-Effectiveness
+Escalabilidade/Scalability
+Elasticidade/Elasticity
+alta disponibilidade/high-availabiliy
+agilidade/agility
+
+
+
+Types of Cloud Computing
+
+Infrastructure as a Service (IaaS)
+*AMAZON EC2*
+Plataform as a Service (PaaS)
+*AMAZON BEANSTALK*
+Software as a Service (SaaS)
+*AMAZON REKOGNITION*
+
+
+AWS - 3 tipos de precificacao fundamentais
+
+Compute:
+- Pay for compute time
+
+Storage:
+- Pay for data stored in the Cloud
+
+Data Transfer OUT of the Cloud:
+- Data transfer IN is free
+
+
+How to choose an AWS Region?
+- Compliance
+- Proximity
+- Available Service
+- Pricing
+
+
+AWS has Global Services:
+- IAM
+- ROUTE53
+- CLOUDFRONT
+- WAF
