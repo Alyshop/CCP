@@ -1,0 +1,62 @@
+IAM POLICYs 
+
+Anexar uma POLICY/politica no nivel do *GRUPO*
+
+Exemplo = Alice Bob e Charles sao desenv, as POLICYs sao atreladas ao GRUPO DESENV.
+
+Caso tenha um usuario sem GRUPO, podemos criar o que e chamado de POLICY INLINE, que possui
+uma POLICY para ser anexada a um usuario sem GRUPO
+
+IAM Policies Struture;
+
+- formato JSON
+- VERSION: numero de VERSION ex: -> "Version": "2023-02-18" 
+- ID: um IDentificador para a POLICY ex: -> "Id": "S3-Account-Permissions" 
+- STATEMENT: uma ou mais declarações individuais ex:  ->  "Statement" : [Sid, Effect, Principal]
+- SID: an identifier for the statement / um identificador para a declaração
+- EFFECT: se a instrução permite ou nega o acesso -> "Effect": "Allow"
+- PRINCIPAL: conta/usuário/função à qual esta política se aplica
+- ACTION: lista de ações que esta política permite ou nega
+- RESOURCE: lista de recursos aos quais as ações serao aplicadas
+- CONDITION: condições para quando esta política estiver em vigor (opcional)
+
+POLICY Struture EX;
+
+{
+    "Version": "2023-02-18",
+    "Id": "S3-Account-Permissions",
+    "Statement": [
+        {
+            "Sid": "1",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": ["arn:aws:iam::123456789012:root"]
+            },
+        "Action":[
+            "s3:GetObject",
+            "s3:PutObject"
+        ],
+        "Resource": ["arn:aws:s3:::mybucket/*"]
+        }
+    ]
+}
+
+
+Na AWS, voce consegue definir a sua politica de senha
+
+- Definir um comprimento mínimo de senha
+- Requer tipos de personagens específicos
+- Permitir que todos os usuários do IAM alterem suas próprias senhas
+- Exigir que os usuários alterem sua senha após alguns dias (expiração da senha em 90 dias)
+- Impedir a reutilização de senha
+
+
+*MFA*
+Multi Factor Authentication - MFA
+MFA = senha que você conhece + dispositivo de segurança que você possui
+
+MFA devices options in AWS:
+
+- Virtual MFA device
+- Universal 2nd Factor (U2F) Security Key
+
