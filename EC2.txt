@@ -1,18 +1,117 @@
+Amazon EC2
+
+- EC2 é uma das ofertas mais populares da AWS
+- EC2 = Elastic Compute Cloud = Infraestrutura como serviço
+- Consiste principalmente na capacidade de:
+      - Aluguel de máquinas virtuais (EC2)
+      - Armazenamento de dados em unidades virtuais (EBS)
+      - Distribuição de carga entre máquinas (ELB)
+      - Dimensionar os serviços usando um grupo de dimensionamento automático (ASG)
+     
+- Conhecer o EC2 é fundamental para entender como funciona a Cloud
+
+
+Opções de dimensionamento e configuração do EC2
+
+- Sistema Operacional (SO): Linux, Windows ou Mac OS (Mais Popular)
+- Quanta potência de computação e núcleos (CPU)
+- Quanta memória de acesso aleatório (RAM)
+- Quanto espaço de armazenamento:
+      - Conectado à rede (EBS e EFS)
+      - Hardware (armazenamento de instâncias do EC2)
+Placa de rede: velocidade da placa, endereço IP público
+- Regra de firewall: grupo de segurança
+- Script Bootstrap (configurar no primeiro lançamento): EC2 User Data
+
+EC2 User Data
+- É possível inicializar nossas instâncias usando um script de dados do usuário do EC2.
+- bootstrapping significa lançar comandos quando uma máquina inicia
+- Esse script é executado apenas uma vez na primeira inicialização da instância
+- Os dados do usuário do EC2 são usados para automatizar tarefas de inicialização, como:
+      - Instalando atualizações
+      - Instalar programas
+      - Baixando arquivos comuns da internet
+      - Qualquer coisa que você possa pensar
+
+- Os scripts de dados do usuário EC2 são executados com o usuário ROOT!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Comandos para conectar na EC2 via SSH.
 
 Instance ID
 EXEMPLO - XPTO
     Open an SSH client.
-
     Locate your private key file. The key used to launch this instance is key.pem -> ache o local onde esta a chave 
-
     Run this command, if necessary, to ensure your key is not publicly viewable.
+#chmod 400 key.pem -> permissao para a key.pem
 
- chmod 400 devops.pem -> permissao para a key.pem
-
-Connect to your instance using its Public DNS:
+#Connect to your instance using its Public DNS:
 
      ec2-100-25-44-243.compute-1.amazonaws.com 
-
-Example:
+#Example:
 ssh -i "key.pem" ubuntu@ec2-100-25-44-243.compute-1.amazonaws.com -> exemplo de como conectar na EC2 via SSH

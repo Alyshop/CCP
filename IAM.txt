@@ -59,4 +59,42 @@ MFA devices options in AWS:
 
 - Virtual MFA device
 - Universal 2nd Factor (U2F) Security Key
+- Hardware Key Fob MFA Device
+- Hardware Key Fob MFA Device for AWS GovCloud (US)
 
+
+*ACESSO A AWS*
+Para acessar a AWS temos 3 opcoes:
+- AWS Management Console (protected by password + MFA)
+- AWS Comand Line Interface (CLI): protected by access keys 
+- AWS Software Developer Kit (SDK): for code: protected by acess keys
+
+- As chaves de acesso são geradas por meio do console AWS
+- Access Key ID = username
+- Secret Access Key = password
+
+IAM ROLES FOR Services
+- Uma ROLE e atribuida aos servicos da AWS, voce atribui uma ROLE de leitura "ReadOnly" a uma EC2.
+Assim a EC2 consegue acessar outro servico da AWS como o S3 somente com leitura.
+- Common Roles:
+  - EC2 Instance Roles
+  - Lambda Function Roles
+  - Roles for CloudFormation
+
+
+IAM Security Tools
+
+- IAM Credential Report (account-level)
+- IAM Access Advisor (user-level)
+
+* IAM Guidelines & Best Practices//Diretrizes e práticas recomendadas do IAM *
+
+- Não use a conta raiz, exceto para configuração da conta AWS
+- Um usuário físico = Um usuário da AWS
+- Atribuir usuário a grupos e atribuir permissões a grupos
+- Crie uma política de senha forte
+- Use e imponha o uso de autenticação multifator (MFA)  
+- Crie e use funções para conceder permissões aos serviços da AWS
+- Use chaves de acesso para acesso programático (CLI/SDK)
+- Permissão de auditoria de sua conta com o relatório de credenciais IAM
+- NUNCA COMPARTILHE USUÁRIOS DO IAM E CHAVES DE ACESSO
