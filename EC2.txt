@@ -1,4 +1,17 @@
-Amazon EC2
+Amazon EC2 - Summary;
+
+- EC2 Instance : AMI(OS) + Instance Size (CPU + RAM) + Storage + Security Groups + EC2 User Data
+- Security Groups: Firewall attached to the EC2 instance
+- EC2 User Data: Script lauched at the first start of an instance
+- SSH: start a terminal into our EC2 Instances (port 22)
+- EC2 Instance Role: link to AMI roles
+- Purchasing options (On-Demand, Spot, Reserved, Dedicated Host, Dedicated Instance)
+
+
+
+
+
+
 
 - EC2 é uma das ofertas mais populares da AWS
 - EC2 = Elastic Compute Cloud = Infraestrutura como serviço
@@ -36,82 +49,140 @@ EC2 User Data
 - Os scripts de dados do usuário EC2 são executados com o usuário ROOT!
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Comandos para conectar na EC2 via SSH.
-
-Instance ID
+*Grupos de segurança*
+- Grupos de segurança são a base da segurança de rede na AWS
+- Eles controlam como o tráfego é permitido dentro ou fora de nossa instância do EC2.
+
+- Os grupos de segurança contêm apenas regras de permissão
+- As regras dos grupos de segurança podem fazer referência por IP ou por grupo de segurança
+- Grupos de segurança estão agindo como um "firewall" nas instâncias do EC2
+- Regulam:
+       - Acesso aos Portos
+       - Intervalos de IP autorizados - IPv4 e IPv6
+       - Controle de rede de entrada (de outro para a instância)
+       - Controle de rede de saída (da instância para outra)
+- As instâncias permitem grupos de segurança múltiplos
+- Bloqueado para uma combinação de região/VPC
+- Vive "fora" do EC2 - se o tráfego estiver bloqueado, a instância do EC2 não verá
+- É bom manter um grupo de segurança separado para acesso SSH
+- Se o seu aplicativo apresentar um erro de "conexão recusada", é um erro do aplicativo ou não foi iniciado
+
+Portos Clássicos a conhecer
+- 22 = SSH (Secure Shell) - faça login em uma instância do Linux
+- 21 = FTP (Protocolo de transferência de arquivo) - carrega arquivos em um compartilhamento de arquivo
+- 22 = SFTP (Secure File Transfer Protocol) - upload de arquivos usando SSH
+- 80 = HTTP (acessar sites não seguros)
+- 443 = HTTPS - acessar sites seguros
+- 3389 = RDP (Remote Desktop Protocol) - faça login em uma instância do Windows
+
+
+Como fazer SSH em sua instância do EC2
+(Linux/MacOS)
+
+
+
+Comandos para conectar no EC2 via SSH.
+
+ID da instância
 EXEMPLO - XPTO
-    Open an SSH client.
-    Locate your private key file. The key used to launch this instance is key.pem -> ache o local onde esta a chave 
-    Run this command, if necessary, to ensure your key is not publicly viewable.
+     Abra um cliente SSH.
+     Localize seu arquivo de chave privada. A chave usada para iniciar esta instância é key.pem -> ache o local onde esta a chave
+     Execute este comando, se necessário, para garantir que sua chave não seja visível publicamente.
 #chmod 400 key.pem -> permissao para a key.pem
 
-#Connect to your instance using its Public DNS:
+#Conecte-se à sua instância usando seu DNS público:
 
-     ec2-100-25-44-243.compute-1.amazonaws.com 
-#Example:
+      ec2-100-25-44-243.compute-1.amazonaws.com
+#Exemplo:
 ssh -i "key.pem" ubuntu@ec2-100-25-44-243.compute-1.amazonaws.com -> exemplo de como conectar na EC2 via SSH
+
+
+
+
+Opções de compra de instâncias EC2
+- Instâncias sob demanda - carga de trabalho reduzida, preços previsíveis, pagamento por segundo
+- Reservado (1 e 3 anos)
+       - Instâncias reservadas - cargas de trabalho longas
+       - Instâncias reservadas conversíveis - cargas de trabalho longas
+- Saving Plans (1 e 3 anos) - compromisso com uma quantidade de uso, longa carga de trabalho
+- Instâncias pontuais - cargas de trabalho curtas, baratas, podem perder instâncias (menos confiáveis)
+- Hosts dedicados - reserve um servidor físico inteiro, controle o posicionamento da instância
+- Instâncias dedicadas - nenhum outro cliente compartilhará seu hardware
+- Reservas de capacidade - capacidade de reserva em uma AZ específica por qualquer duração
+
+
+
+*EC2 SOB DEMANDA*
+- Pague pelo que usar:
+       - Linux ou Windows - cobrança por segundo, após o primeiro minuto
+       - Todos os outros sistemas operacionais - cobrança por hora
+- Tem o custo mais alto, mas sem pagamento adiantado
+- Sem compromisso de longo prazo
+- Recomendado para cargas de trabalho ininterruptas e de curto prazo, onde você não pode prever como o aplicativo se comportará
+
+*Instâncias Reservadas do EC2*
+- Até 72% de desconto em relação ao On-Demand
+- Você reserva atributos de instância específicos (tipo de instância, regiões de locação, sistema operacional)
+- Período de reserva - 1 ano (+desconto) ou 3 anos (+++desconto)
+- Opções de pagamento - sem adiantamento (+), adiantado parcial (++), adiantado (+++)
+- Escopo da Instância Reservada - Regional ou Zonal (capacidade de reserva em uma AZ)
+- Recomendado para aplicação de uso em estado estacionário (pense em banco de dados)
+- Você pode comprar e vender no mercado de instâncias reservadas
+
+- Instância reservada passível de cobertura
+       - Pode alterar o tipo de instância do EC2, família de instâncias, sistema operacional, escopo e locação
+       - Até 66% de desconto
+
+* PLANOS DE ECONOMIA EC2 *
+
+- Obtenha um desconto com base no uso a longo prazo (até 72% - o mesmo que RIs)
+- Comprometer-se com um determinado tipo de uso (US$ 10/hora por 1 ou 3 anos)
+- O uso além dos Savings Plans EC2 é cobrado pelo preço sob demanda
+- Bloqueado para uma família de instância específica e região da AWS (por exemplo, M5 em us-east-1)
+
+
+*EC2 INSTÂNCIAS PONTAIS*
+- Pode obter um desconto de até 90% em relação ao On-Demand
+- Instâncias que você pode "perder" a qualquer momento se seu preço máximo for menor que o preço spot atual
+- As instâncias MAIS econômicas da AWS
+- Userful para cargas de trabalho resistentes a falhas
+       - Trabalhos em lote
+       - Análise de dados
+       - Processamento de imagem
+       - Quaisquer cargas de trabalho distribuídas
+       - cargas de trabalho com horário de início e término flexível
+- Não é adequado para trabalhos ou bancos de dados críticos
+
+
+*Hosts Dedicados EC2*
+- Um servidor físico com capacidade de instâncias EC2 totalmente dedicado ao seu uso
+- Permite atender aos requisitos de conformidade e usar suas licenças de software existentes vinculadas ao servidor
+- Opções de compra:
+       - Sob demanda - pagamento por segundo para hosts dedicados ativos
+       - Reservado - 1 ou 3 anos (sem adiantamento, adiantamento parcial, adiantamento total)
+- A opção mais cara
+- Útil para softwares com modelo de licenciamento complicado (BYOL)
+- Ou para empresas com fortes necessidades regulatórias ou de conformidade
+
+
+*Instâncias dedicadas EC2*
+- As instâncias são executadas em hardware dedicado a você
+- Pode compartilhar hardware com outras instâncias na mesma conta
+- Sem controle sobre o posicionamento da instância (pode mover o hardware após parar/iniciar)
+
+*MODELO DE RESPONSABILIDADE COMPARTILHADA PARA EC2*
+
+AWS {
+       Infraestrutura (segurança de rede global)
+       Isolamento em hosts físicos
+       Substituindo hardware defeituoso
+       validação de conformidade
+}
+
+CLIENTE {
+       Regras de grupos de segurança
+       Patches e atualizações do sistema operacional
+       Software e utilitários instalados na instância do EC2
+       Funções IAM atribuídas ao gerenciamento de acesso de usuário EC2 e IAM
+       Segurança de dados em suas instâncias
+}
