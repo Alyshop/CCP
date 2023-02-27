@@ -1,0 +1,13 @@
+*AWS CERTIFICATION - CCP*
+
+ALGUMAS DICAS QUE IRA TE AUXILIAR NO EXAME. (memorizar em alto nivel)
+
+- General understanding of AWS ARCHITECTURE PRINCIPLES
+- the VALUE OF aws cloud
+- key and important aws services and their applications
+- The underlying security and compliance
+- share responsiblity model for security
+- the core cloud deployment and operating principles
+
+
+- memorizar em alto nivel os niveis de SUPORTE (BASIC, DEVELOPER, BUSINESS, ENTERPRISE)

@@ -1,0 +1,8 @@
+S3 = Simple Storage Service
+
+- Amazon S3 is one of the main building blocks of AWS 
+- It's advertised as "Infinitely scaling" Storage
+
+- Many websites use Amazon S3 as a backbone = (é a parte mais importante de um sistema que fornece o suporte central para que múltiplas redes se conectem e conversem umas com as outras. )
+
+

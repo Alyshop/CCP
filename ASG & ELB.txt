@@ -1,0 +1,94 @@
+ASG = Auto Scaling Group
+ELB = Elastic Load Balancing
+
+
+*Scalability & High Availability*
+
+- Scalability means t hat an apllication / system can handle greater loads by adapting
+- The are two kinds of scalability:
+    - Vertical Scalability
+    - Horizontal Scalability (= elasticity)
+- Scalability is linked but different to High Availability
+
+
+
+*Vertical Scalability*
+
+- Vertical Scalability means increasing the size of the instance
+- For example, your application runs on a t2.micro
+- Scaling that apllication vertically means running it on a t2.large
+- Vertical scalability is very common for non distributed systems, such as a database. 
+- There's usually a limit to how much you can vertically scale (hardware limit)
+
+*Horizontal Scalability*
+
+- Horizontal Scalability means increasing the number of instances / systems for your application
+- Horizontal scaling imples distributed systems. 
+- This very common for web application / mordern application
+- It's easy to horizontally scale thanks the cloud offerings such as Amazon EC2
+
+
+*High Availability*
+
+
+
+*WHY USE A LOAD BALANCER?*
+
+- Spread load across multiple downstream instances
+- Expose a single point of acess (DNS) to yout apllication
+- Seamlessly handle failures of downstream instances
+- Do regular health checks to yout instances
+- Provide SSL termination (HTTPS) for your websites
+- High availability across zones
+- An ELB is a maged load balancer
+    - AWS guarateens that it will be working
+    - AWS takes care of upgrades, maintenance, high availability
+    - AWS provides only a few configuration knobs
+- It cost less to setup yout own load balancer but it will be a lot more offert on your end 
+- 4 kind of load balancers offered by AWS:
+    - Application Load Balancer (HTTP / HTTPS only) - Layer 7
+    - Network Load Balancer (ultra-hihg perfomance, allows for TCP) - Layer 4
+    - Gateway Load Balancer - Layer 3
+    - Classic Load Balancer (retired) - Layer 4 & 7   -> Application Load Balancer <- novo Classic Load Balancer
+
+
+
+What's an Auto Scaling Group?
+
+-In real-life, the load on yout websites and application can change
+- In the cloud, you can create and get rid of servers very quickly
+- The goal of an Auto Scaling Group (ASG) is to: 
+    - Scale out (add EC2 instances) to match an increased load
+    - Scale in (remove EC2 instances) to match a decreased load
+    - Automatically register new instances to a load balancer
+    - Replace unhealthy instances
+- Cost Savings: only run at an optimal capacity (principle of the cloud)
+
+
+Auto Scaling Groups - Scaling Strategies 
+
+- Manual Scaling: Update the size of an ASG manually
+- Dynamic Scaling: Respond to changing demand
+    - Simple / Step Scaling
+        - When a CloudWatch alarm is triggered (example CPU > 70%), then add 2 units
+        - When a CloudWatch alarm is triggered (example CPU < 30%), then remove 1
+    - Target Tracking Scaling
+        - Example: I want the average ASG CPU to stay at around 40%
+    - Scheduled Scaling
+        - Anticipate a scaling based on known usage patterns
+        - Example: increase the min. capacity to 10 at 5pm on Fridays
+
+
+ELB & ASG - Summary
+
+- High Availability vs Scalability (vertical and Horizontal) vs elasticity vs Agility in the Cloud
+- Elastic Load Balancers (ELB)
+    - Distribute traffic across backend EC2 instances, can be Multi-AZ
+    - Supports health checks
+    - 4 types: Classic (old), Application (HTTP - L7), Network (TCP - L4), Gateway (L3)
+
+- Auto Scaling Groups (ASG)
+    - Implement elasticity for your application, across multiple AZ
+    - Scale EC2 instances based on the demand on your system, replace unhealthy 
+    - Integrated with the ELB
+    
