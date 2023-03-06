@@ -58,3 +58,35 @@ Amazon S3 - Objects (cont.)
 - Tags (Unicode key / value pair - up to 10) - useful for security / lifecycle
 - Version ID (if versioning is enabled)
 
+
+
+Amazon S3 - Security
+
+- User-Based
+    - IAM Polices - which API calls should be allowed for a specific user from IAM
+
+- Resource-Based
+    - Bucket Policies - bucket wide rules from the S3 console - allows cross accounts
+    - Object Access Control List (ACL) - finer grain (can be disabled)
+    - Bucjet Access Control List (ACL) - less common (can be disabled)
+
+Note: an IAM principal can access an S3 object if
+    - The user IAM permissions ALLOW it or the resouce policy ALLOWS it
+    - AND there's no explicit DENY 
+
+- Encryption: encrypt objects in Amazon S3 using encryption keys
+
+
+S3 Buckets Polices 
+
+- JSON based polices 
+    - Resources: buckets and objects 
+    - Effect: Allow / Deny 
+    - Actions : Set of API to Allow or Deny 
+    - Principal: The account or user to apply the policy to 
+
+Use S3 bucket for policy to:
+    - Grant public access to the bucket
+    - Force objects to be encrypted at upload   
+    - Grant access to another account (Cross accounts)
+
