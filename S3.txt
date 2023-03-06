@@ -90,3 +90,32 @@ Use S3 bucket for policy to:
     - Force objects to be encrypted at upload   
     - Grant access to another account (Cross accounts)
 
+
+Shared Responsibility Model for S3
+
+AWS 
+
+    - Infrastructure (global security, durability, availability, sustain concurrent loss of data in two facilities)
+    - Configuration and vulnerability analysis
+    - Compliance validation 
+
+Customer 
+
+    - S3 Versioning 
+    - S3 Bucket Policies 
+    - S3 Replication Setup 
+    - Logging and Monitoring 
+    - S3 Storage Classes 
+    - Data encryption at rest and in transit 
+
+Amazon S3 - Summary 
+
+- Buckets vs Objects: global unique name, tied to a region 
+- S3 security: IAM policy, S3 Bucket Policy (public access), S3 Encryption 
+- S3 Websites: host a static website on Amazon S3 
+- S3 Versioning: multiple versions for files, prevent accidental deletes 
+- S3 Replication: same-region or cross-region, must enable versioning 
+- S3 Storage Classes: Standard, IA, IZ-IA, Intelligent, Glacier (Instant, Flexible, Deep)
+- Snow Family: Import data onto S3 through a physical device, edge computing 
+- OpsHub: desktop application to manage Snow Family devices
+- Storage Gateway: hybrid solution to extend on-premises storage to S3 
