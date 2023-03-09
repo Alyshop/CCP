@@ -1,0 +1,3 @@
+Databases Intro 
+
+- Storing data on disk (EFS,EBS,EC2 Instance Store, S3) can have it limits
