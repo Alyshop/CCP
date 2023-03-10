@@ -10,4 +10,10 @@ ALGUMAS DICAS QUE IRA TE AUXILIAR NO EXAME. (memorizar em alto nivel)
 - the core cloud deployment and operating principles
 
 
+Caso identifique no exame, algo que diz que voce precisa de um banco de dados na memoria, voce tem que pensar diretamente no ElastiCache
+
+Caso identifique no exame, um Hadoop Cluster , sera o Amazon EMR
+
+Dica para o exame: Analyze data in S3 using serverless SQL, use Athena 
+
 - memorizar em alto nivel os niveis de SUPORTE (BASIC, DEVELOPER, BUSINESS, ENTERPRISE)
