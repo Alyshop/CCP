@@ -1,3 +1,14 @@
 Databases Intro 
 
 - Storing data on disk (EFS,EBS,EC2 Instance Store, S3) can have it limits
+- Sometimes, you want to store data in a database 
+- You can structure the data
+- You build indexes to efficiently query / search through the data 
+- You define relationships between your datasets 
+
+- Databases are optimized for a purpose and come with different features, shapes and constraints
+
+
+Relational Databases
+
+- Looks just like Excel spreadsheets, with links between them! 
