@@ -1,8 +1,8 @@
 
 Global Applications in AWS 
 
-- GlobalDNS: Route 53
+- Global DNS: Route 53
 
+- Global Content Delivery Network (CDN): CloudFront 
 
-
-TESTE VINAO
+- S3 transfer acceleration
