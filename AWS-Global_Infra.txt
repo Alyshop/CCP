@@ -2,7 +2,8 @@
 Global Applications in AWS 
 
 - Global DNS: Route 53
-
 - Global Content Delivery Network (CDN): CloudFront 
-
 - S3 transfer acceleration
+- AWS Global Accelerator
+
+
