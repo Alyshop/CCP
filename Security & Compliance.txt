@@ -1,0 +1,78 @@
+
+
+
+
+DDOS Protection on AWS 
+
+- AWS Shield Standard: protects against DDOS attack for your website and applications, for all customers at no additional costs
+- AWS Shield Advanced: 24/7 premium DDoS protection 
+- AWS WAF: Filter specific requests based on rules 
+- CloudFront and Route 53:
+    - Availability protection using global edge network 
+    - Combined with AWS Shield, provides attack mitigation at the edge 
+
+- Be ready to scale - leverage AWS Auto Scaling 
+
+
+Encryption with KMS and CloudHSM
+
+KMS = Key Management Service
+
+- Anytime you hear "encryption" for an AWS service, it's most likely KMS 
+- KMS = AWS manages the encryption keys for us 
+- Encryption Opt-in: 
+    - EBS volumes: encrypt volumes
+    - S3 buckets: Server-side encryption of objects 
+    - Redshift database: encryption of data
+    - RDS database: encryption of data 
+    - EFS drives: encryption of data 
+- Encryption Automatically enabled: 
+    - CloudTrail Logs
+    - S3 Glacier 
+    - Storage Gateway 
+
+
+AWS Certificate Manager (ACM)
+
+- Let's you easily provision, manage, and deploy SSL/TLS Certificates
+- Used to provide in-fligtht encryption for websites (HTTPS)
+- Supports both public and private TLS Certificates 
+- Free of charge for public TLS certificates 
+- Automatic TLS certificate renewal 
+- Integrations with (load TLS certificates on)
+    - Elatisc Load Balancers 
+    - CloudFront Distributions 
+    - APIs on API Gateway 
+
+AWS Secrets Manager 
+- Newers service, meant for storing secrets 
+- Capability to forcerotation of secrets every X days 
+- Automate generation of secrets on rotation (uses Lambda)
+- Integration with Amazon RDS (MySQL, PostgreSQL, Aurora)
+- Secrets are encrypted using KMS 
+
+- Mostly meant for RDS integration 
+
+
+- Section Summary: Security and Compliance 
+
+- Shared Responsibility on AWS 
+- Shield: Automatic DDoS Protection + 24/7 support for advanced 
+- WAF: Firewall to filter incoming requests based on rules 
+- KMS: Encryption Keys managed by AWS 
+- CloudHSM: Hardware encryption, we manage ecryption keys 
+- AWS Certificate Manager: provision, manage, and deploy SSL/TLS Certificates 
+- Artifact: Get access to compliance reports such as PCI, ISO, etc...
+- GuardDuty: Find malicious behavior with VPC, DNS & CloudTrail Logs 
+- Inpsector: find software vulnerabilities in EC2, ECR Images, and Lambda functions 
+- Config: Track config changes and compliance against rules 
+- Macie: Find sensitive data (ex: PII data) in Amazon S3 buckets
+- CloudTrail: Track API calls made by users within account
+- AWS Security HUB:  gather security findings from multiple AWS accounts 
+- Amazon Dectective: find the root cause of security issues or suspicious activities
+- AWS Abuse: Report AWS resources used for abusive or ilegal purposes
+- Root user privileges:
+    - Change account settings 
+    - Close your AWS account 
+    - Change or cancel your AWS Support plan 
+    - Register as a seller in the Reserved Instance Marketplace 
