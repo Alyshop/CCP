@@ -1,1 +1,15 @@
-VPC - Crash Course 
+VPC = Virtual Private Cloud
+
+IP Addresses in AWS
+- IPv4 - Internet Protocol version 4 (4.3 Bilion Addresses)
+    - Public IPV4 - can be used on the Internet
+    - EC2 instance gets a new a public IP address every time, you stop then start it (default)
+    - Private IPv4 - can be used on private networks (LAN) such as internal aws networking (e.g., 192.168.1.1)
+    - Private IPv4 is fixed for EC2 Instances even if you start/stop them
+
+- Elastic IP - allows you to attach a fixed public IPv4 Address to EC2 
+    Note: has ongoing cost if not attached to EC2 instance or if the EC2 instance is stopped
+
+- IPv6 - Internet Protocol version 6 (3.4 x 10*38 Addresses)
+    - Every IP address is public (no private range)
+    - Example: 2001:db8:3333:4444:cccc:dddd:eeee:ffff
